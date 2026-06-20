@@ -1,6 +1,10 @@
 import Header from "./components/Header";
 import Hero from "./components/sections/Hero";
 import Sobre from "./components/sections/Sobre";
+import Servicos from "./components/sections/Servicos";
+import Depoimentos from "./components/sections/Depoimentos";
+import Contato from "./components/sections/Contato";
+import Footer from "./components/sections/Footer";
 
 export default function Home() {
   return (
@@ -8,6 +12,10 @@ export default function Home() {
       <Header />
       <Hero />
       <Sobre />
+      <Servicos />
+      <Depoimentos />
+      <Contato />
+      <Footer />
     </main>
   );
 }
