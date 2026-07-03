@@ -27,7 +27,7 @@ export default function Depoimentos() {
   ];
 
   return (
-    <section className="bg-[#111111] py-24 px-6">
+    <section id="depoimentos" className="bg-[#111111] py-24 px-6">
       <div className="max-w-5xl mx-auto">
         <p className="text-[#C9A84C] text-xs uppercase tracking-[4px] mb-4">
           Avaliações

@@ -1,53 +1,70 @@
 export default function Sobre() {
   const tagStyle =
-    "border border-[#2A2A2A] px-3 py-1 text-[#999999] text-xs uppercase";
+    "border border-[#2A2A2A] px-4 py-2 text-[#999999] text-xs uppercase tracking-widest hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors";
 
   return (
-    <section className="bg-[#111111] py-24 px-6">
-      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        {/* Coluna esquerda - texto */}
-        <div>
-          <p className="text-[#C9A84C] text-xs uppercase tracking-[4px] mb-4">
+    <section id="sobre" className="bg-[#0A0A0A] py-32 px-6">
+      <div className="max-w-5xl mx-auto">
+        <div className="flex items-center gap-4 mb-20">
+          <div className="w-8 h-px bg-[#C9A84C]"></div>
+          <p className="text-[#C9A84C] text-xs uppercase tracking-[4px]">
             Sobre
           </p>
-
-          <h2 className="font-playfair text-4xl text-[#F5F5F5] mb-6 leading-tight">
-            Maria Alice Gonçalves de Barros Vieira
-          </h2>
-
-          <div className="w-10 h-px bg-[#C9A84C] mb-6"></div>
-
-          <p className="text-[#999999] text-sm leading-relaxed mb-4">
-            Cirurgiã-Dentista com atuação em Clínico Geral e Dentística
-            Estética, com experiência em restaurações em resina composta,
-            facetas, clareamento dental e reabilitação oral básica.
-          </p>
-
-          <p className="text-[#999999] text-sm leading-relaxed mb-8">
-            Habilidade em planejamento estético, atendimento humanizado e
-            resolução de urgências. Experiência prática em odontologia digital
-            com scanner intraoral iTero para planejamento e execução de
-            tratamentos precisos.
-          </p>
-
-          {/* Tags de habilidades */}
-          <div className="flex flex-wrap gap-2">
-            <span className={tagStyle}>Facetas em Resina</span>
-            <span className={tagStyle}>Clareamento</span>
-            <span className={tagStyle}>Scanner iTero</span>
-            <span className={tagStyle}>Planejamento Estético</span>
-            <span className={tagStyle}>CRO74548</span>
-          </div>
         </div>
 
-        {/* Coluna direita - foto */}
-        <div className="bg-[#1A1A1A] border border-[#2A2A2A] aspect-square flex items-center justify-center">
-          <div className="text-center">
-            <p className="text-[#C9A84C] text-4xl mb-4">✦</p>
-            <p className="text-[#999999] text-xs uppercase tracking-[2px]">
-              Foto da Dra. Maria Alice
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+          <div className="relative">
+            <div className="bg-[#111111] border border-[#2A2A2A] aspect-square relative overflow-hidden">
+              <div className="absolute top-4 left-4 w-8 h-8 border-t border-l border-[#C9A84C] z-10 pointer-events-none"></div>
+              <div className="absolute bottom-4 right-4 w-8 h-8 border-b border-r border-[#C9A84C] z-10 pointer-events-none"></div>
+              <img
+                src="/maria-alice.jpg"
+                alt="Dra. Maria Alice"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "top",
+                }}
+              />
+            </div>
+            <div className="absolute -bottom-6 -right-6 bg-[#C9A84C] p-6 hidden md:block">
+              <p className="font-playfair text-black text-2xl font-bold">CRO</p>
+              <p className="text-black text-xs font-bold tracking-widest">
+                74548
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h2 className="font-playfair text-4xl text-[#F5F5F5] mb-2 leading-tight">
+              Maria Alice Gonçalves
+            </h2>
+            <h2 className="font-playfair text-4xl text-[#C9A84C] italic mb-8 leading-tight">
+              de Barros Vieira
+            </h2>
+
+            <div className="w-10 h-px bg-[#C9A84C] mb-8"></div>
+
+            <p className="text-[#999999] text-sm leading-relaxed mb-6">
+              Cirurgiã-Dentista com atuação em Clínico Geral e Dentística
+              Estética, com experiência em restaurações em resina composta,
+              facetas, clareamento dental e reabilitação oral básica.
             </p>
-            <p className="text-[#2A2A2A] text-xs mt-2">Adicionar imagem</p>
+
+            <p className="text-[#999999] text-sm leading-relaxed mb-10">
+              Habilidade em planejamento estético, atendimento humanizado e
+              resolução de urgências. Experiência prática em odontologia digital
+              com scanner intraoral iTero para planejamento e execução de
+              tratamentos precisos.
+            </p>
+
+            <div className="flex flex-wrap gap-2">
+              <span className={tagStyle}>Facetas em Resina</span>
+              <span className={tagStyle}>Clareamento</span>
+              <span className={tagStyle}>Scanner iTero</span>
+              <span className={tagStyle}>Planejamento Estético</span>
+            </div>
           </div>
         </div>
       </div>

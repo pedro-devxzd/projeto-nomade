@@ -7,7 +7,7 @@ export default function Contato() {
     "text-[#999999] text-xs uppercase tracking-[2px] block mb-2";
 
   return (
-    <section className="bg-[#0A0A0A] py-24 px-6">
+    <section id="contato" className="bg-[#0A0A0A] py-24 px-6">
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
         <div>
           <p className="text-[#C9A84C] text-xs uppercase tracking-[4px] mb-4">

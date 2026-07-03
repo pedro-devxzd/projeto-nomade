@@ -33,7 +33,7 @@ export default function Servicos() {
   ];
 
   return (
-    <section className="bg-[#0A0A0A] py-24 px-6">
+    <section id="servicos" className="bg-[#0A0A0A] py-24 px-6">
       <div className="max-w-5xl mx-auto">
         <p className="text-[#C9A84C] text-xs uppercase tracking-[4px] mb-4">
           Especialidades

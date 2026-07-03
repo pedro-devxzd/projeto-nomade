@@ -2,7 +2,7 @@ export default function Footer() {
   const linkStyle =
     "text-[#999999] text-sm hover:text-[#C9A84C] transition-colors";
   const btnStyle =
-    "inline-block mt-6 bg-[#C9A84C] text-black px-6 py-3 text-xs font-bold uppercase";
+    "inline-block mt-6 bg-[#C9A84C] text-black px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#E8C97A] transition-colors";
 
   return (
     <footer className="bg-[#111111] border-t border-[#2A2A2A] py-12 px-6">
@@ -16,7 +16,8 @@ export default function Footer() {
               Cirurgiã-Dentista · CRO74548
             </p>
             <p className="text-[#999999] text-sm leading-relaxed">
-              Odontologia Estética em Barbacena e Conselheiro Lafaiete — MG.
+              Profissional disponível para novas oportunidades em Barbacena e
+              Conselheiro Lafaiete — MG.
             </p>
           </div>
 
@@ -25,19 +26,16 @@ export default function Footer() {
               Navegação
             </p>
             <div className="flex flex-col gap-3">
-              <a href="#" className={linkStyle}>
-                Início
-              </a>
-              <a href="#" className={linkStyle}>
+              <a href="#sobre" className={linkStyle}>
                 Sobre
               </a>
-              <a href="#" className={linkStyle}>
-                Serviços
+              <a href="#servicos" className={linkStyle}>
+                Habilidades
               </a>
-              <a href="#" className={linkStyle}>
-                Depoimentos
+              <a href="#depoimentos" className={linkStyle}>
+                Referências
               </a>
-              <a href="#" className={linkStyle}>
+              <a href="#contato" className={linkStyle}>
                 Contato
               </a>
             </div>
@@ -55,13 +53,20 @@ export default function Footer() {
               <p className="text-[#999999] text-sm">
                 Barbacena / C. Lafaiete — MG
               </p>
+              <a
+                href="https://www.instagram.com/marialicegbv/"
+                target="_blank"
+                className={linkStyle}
+              >
+                @marialicegbv
+              </a>
             </div>
             <a
               href="https://wa.me/5532984592632"
               target="_blank"
               className={btnStyle}
             >
-              Agendar via WhatsApp
+              Entrar em Contato
             </a>
           </div>
         </div>
