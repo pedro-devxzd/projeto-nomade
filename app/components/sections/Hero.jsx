@@ -1,45 +1,44 @@
 export default function Hero() {
   const btnPrimary =
-    "bg-[#C9A84C] text-black px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#E8C97A] transition-all duration-300";
+    "bg-[#C9A84C] text-black px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#E8C97A] transition-all duration-300";
   const btnSecondary =
-    "border border-[#C9A84C] text-[#C9A84C] px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#C9A84C] hover:text-black transition-all duration-300";
+    "border border-[#C9A84C] text-[#C9A84C] px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#C9A84C] hover:text-black transition-all duration-300";
 
   return (
     <section className="min-h-screen bg-[#0A0A0A] flex items-center justify-center px-6 pt-16 relative overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[600px] h-[600px] rounded-full bg-[#C9A84C] opacity-[0.03] blur-3xl"></div>
+        <div className="w-[400px] h-[400px] rounded-full bg-[#C9A84C] opacity-[0.03] blur-3xl"></div>
       </div>
 
-      <div className="text-center max-w-3xl relative z-10">
-        <div className="flex items-center justify-center gap-4 mb-10">
-          <div className="w-8 h-px bg-[#C9A84C]"></div>
-          <p className="text-[#C9A84C] text-xs uppercase tracking-[4px]">
-            Cirurgiã-Dentista · Disponível para Oportunidades
+      <div className="text-center max-w-2xl w-full relative z-10">
+        <div className="flex items-center justify-center gap-3 mb-8">
+          <div className="w-6 h-px bg-[#C9A84C]"></div>
+          <p className="text-[#C9A84C] text-xs uppercase tracking-[3px]">
+            Cirurgiã-Dentista
           </p>
-          <div className="w-8 h-px bg-[#C9A84C]"></div>
+          <div className="w-6 h-px bg-[#C9A84C]"></div>
         </div>
 
-        <h1 className="font-playfair text-6xl md:text-8xl font-bold text-[#F5F5F5] leading-none mb-4">
+        <h1 className="font-playfair text-4xl sm:text-6xl md:text-7xl font-bold text-[#F5F5F5] leading-tight mb-3">
           Dra. Maria Alice
         </h1>
 
-        <p className="font-playfair text-xl text-[#C9A84C] italic mb-2">
+        <p className="font-playfair text-lg sm:text-xl text-[#C9A84C] italic mb-2">
           Gonçalves de Barros Vieira
         </p>
 
-        <p className="text-[#999999] text-xs tracking-[4px] uppercase mb-10">
-          CRO74548 · Barbacena & Conselheiro Lafaiete — MG
+        <p className="text-[#999999] text-xs tracking-[3px] uppercase mb-8">
+          CRO74548 · Barbacena & C. Lafaiete — MG
         </p>
 
-        <div className="w-px h-16 bg-[#2A2A2A] mx-auto mb-10"></div>
+        <div className="w-px h-12 bg-[#2A2A2A] mx-auto mb-8"></div>
 
-        <p className="text-[#999999] text-base leading-relaxed max-w-lg mx-auto mb-12">
-          Profissional com experiência em Dentística Estética, facetas em
-          resina, clareamento dental e odontologia digital com scanner iTero.
-          Atendimento humanizado e foco em resultados estéticos de excelência.
+        <p className="text-[#999999] text-sm leading-relaxed max-w-md mx-auto mb-10 px-2">
+          Especialista em Dentística Estética com experiência em facetas,
+          clareamento e odontologia digital com scanner iTero.
         </p>
 
-        <div className="flex gap-4 justify-center flex-wrap">
+        <div className="flex flex-col sm:flex-row gap-3 justify-center px-4">
           <a
             href="https://wa.me/5532984592632"
             target="_blank"
@@ -56,25 +55,25 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="flex justify-center gap-16 mt-20">
+        <div className="flex justify-center gap-8 mt-16">
           <div className="text-center">
-            <p className="font-playfair text-3xl text-[#C9A84C]">2020</p>
-            <p className="text-[#999999] text-xs uppercase tracking-[2px] mt-1">
+            <p className="font-playfair text-2xl text-[#C9A84C]">2020</p>
+            <p className="text-[#999999] text-xs uppercase tracking-[1px] mt-1">
               Início Clínico
             </p>
           </div>
           <div className="w-px bg-[#2A2A2A]"></div>
           <div className="text-center">
-            <p className="font-playfair text-3xl text-[#C9A84C]">3</p>
-            <p className="text-[#999999] text-xs uppercase tracking-[2px] mt-1">
-              Clínicas Atuadas
+            <p className="font-playfair text-2xl text-[#C9A84C]">3</p>
+            <p className="text-[#999999] text-xs uppercase tracking-[1px] mt-1">
+              Clínicas
             </p>
           </div>
           <div className="w-px bg-[#2A2A2A]"></div>
           <div className="text-center">
-            <p className="font-playfair text-3xl text-[#C9A84C]">244h+</p>
-            <p className="text-[#999999] text-xs uppercase tracking-[2px] mt-1">
-              Curso Especializado
+            <p className="font-playfair text-2xl text-[#C9A84C]">144h</p>
+            <p className="text-[#999999] text-xs uppercase tracking-[1px] mt-1">
+              Especialização
             </p>
           </div>
         </div>
