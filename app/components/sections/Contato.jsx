@@ -22,12 +22,13 @@ export default function Contato() {
     try {
       await emailjs.send(
         "service_5ymsdg8",
-        "template_cOduOua",
+        "template_c0du0ua",
         form,
         "VIEfqCFL8W1Lqoc97",
       );
       setStatus("email_ok");
-    } catch {
+    } catch (error) {
+      console.log("Erro EmailJS:", error);
       setStatus("email_erro");
     }
     setLoading(false);
@@ -59,7 +60,7 @@ export default function Contato() {
             Preencha o formulário e escolha como prefere ser atendido — por
             e-mail ou diretamente pelo WhatsApp.
           </p>
-          <div class="mb-6">
+          <div className="mb-6">
             <p className="text-[#C9A84C] text-xs uppercase tracking-[2px] mb-1">
               WhatsApp
             </p>
