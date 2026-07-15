@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section className="min-h-screen bg-[#0A0A0A] flex items-center justify-center px-6 pt-16 relative overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="hero-glow w-[450px] h-[450px] rounded-full bg-[#C9A84C] opacity-[0.05] blur-[180px]"></div>
+        <div className="hero-glow w-[450px] h-[450px] rounded-full bg-[#C9A84C] opacity-[0.05] blur-[140px]"></div>
       </div>
 
       <div className="text-center max-w-2xl w-full relative z-10">
