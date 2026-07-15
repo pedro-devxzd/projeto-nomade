@@ -1,9 +1,9 @@
 export default function Hero() {
   const btnPrimary =
-    "bg-[#C9A84C] text-black px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#E8C97A] transition-all duration-300";
+    "relative overflow-hidden bg-[#C9A84C] text-black px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-500 hover:bg-[#E8C97A] hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(201,168,76,0.25)]";
 
   const btnSecondary =
-    "border border-[#C9A84C] text-[#C9A84C] px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#C9A84C] hover:text-black transition-all duration-300";
+    "relative overflow-hidden border border-[#C9A84C] text-[#C9A84C] px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-500 hover:bg-[#C9A84C] hover:text-black hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(201,168,76,0.20)]";
 
   return (
     <section className="min-h-screen bg-[#0A0A0A] flex items-center justify-center px-6 pt-16 relative overflow-hidden">
