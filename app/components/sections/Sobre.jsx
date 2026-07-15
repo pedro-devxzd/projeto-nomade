@@ -1,6 +1,6 @@
 export default function Sobre() {
   const tagStyle =
-    "border border-[#2AA2A2A] px-4 py-2 text-[#999999] text-xs uppercase tracking-widest hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors";
+    "border border-[#2A2A2A] px-4 py-2 text-[#999999] text-xs uppercase tracking-widest hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors";
 
   return (
     <section id="sobre" className="bg-[#0A0A0A] py-32 px-6">
@@ -35,10 +35,6 @@ export default function Sobre() {
               <p className="text-black text-xs font-bold tracking-widest">
                 74548
               </p>
-
-              <p className="text-black text-[10px] font-bold tracking-widest mt-1">
-                REGISTRO PROFISSIONAL
-              </p>
             </div>
           </div>
 
@@ -61,15 +57,18 @@ export default function Sobre() {
 
             <p className="text-[#999999] text-sm leading-relaxed mb-10">
               Habilidade em planejamento estético, atendimento humanizado e
-              resolução de urgências. Experiência prática em odontologia digital
-              com scanner intraoral iTero para planejamento e execução de
-              tratamentos precisos.
+              resolução de urgências. Experiência em odontologia digital e
+              planejamento de tratamentos personalizados com foco em precisão e
+              naturalidade.
             </p>
 
             <div className="flex flex-wrap gap-2">
-              <span className={tagStyle}>Facetas em Resina</span>
-              <span className={tagStyle}>Clareamento</span>
+              <span className={tagStyle}>Facetas Estéticas</span>
+
+              <span className={tagStyle}>Clareamento Dental</span>
+
               <span className={tagStyle}>Odontologia Digital</span>
+
               <span className={tagStyle}>Planejamento Estético</span>
             </div>
           </div>
