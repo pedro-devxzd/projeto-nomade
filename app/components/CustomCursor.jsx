@@ -4,8 +4,17 @@ import { useEffect, useState } from "react";
 
 export default function CustomCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
+    const isTouchDevice = window.matchMedia(
+      "(hover: hover) and (pointer: fine)",
+    ).matches;
+
+    setEnabled(isTouchDevice);
+
+    if (!isTouchDevice) return;
+
     const move = (e) => {
       setPosition({
         x: e.clientX,
@@ -20,10 +29,13 @@ export default function CustomCursor() {
     };
   }, []);
 
+  if (!enabled) return null;
+
   return (
     <div
       style={{
         position: "fixed",
+
         left: position.x,
         top: position.y,
 
