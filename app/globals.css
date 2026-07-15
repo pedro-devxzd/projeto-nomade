@@ -48,3 +48,20 @@ a {
     transform: translateY(0);
   }
 }
+.hero-glow {
+  animation: glowMove 10s ease-in-out infinite;
+}
+
+@keyframes glowMove {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(20px, -15px) scale(1.05);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
