@@ -12,7 +12,7 @@ export default function Hero() {
       </div>
 
       <div className="text-center max-w-2xl w-full relative z-10">
-        <div className="flex items-center justify-center gap-3 mb-8">
+        <div className="fade-up flex items-center justify-center gap-3 mb-8">
           <div className="w-6 h-px bg-[#C9A84C]"></div>
 
           <p className="text-[#C9A84C] text-xs uppercase tracking-[3px]">
@@ -22,7 +22,7 @@ export default function Hero() {
           <div className="w-6 h-px bg-[#C9A84C]"></div>
         </div>
 
-        <h1 className="font-playfair text-4xl sm:text-6xl md:text-7xl font-bold text-[#F5F5F5] leading-tight mb-3">
+        <h1 className="fade-up fade-up-delay-1 font-playfair text-4xl sm:text-6xl md:text-7xl font-bold text-[#F5F5F5] leading-tight mb-3">
           Dra. Maria Alice
         </h1>
 
@@ -36,14 +36,14 @@ export default function Hero() {
 
         <div className="w-px h-12 bg-[#2A2A2A] mx-auto mb-8"></div>
 
-        <p className="text-[#999999] text-sm leading-relaxed max-w-md mx-auto mb-10 px-2">
+        <p className="fade-up fade-up-delay-2 text-[#999999] text-sm leading-relaxed max-w-md mx-auto mb-10 px-2">
           Especialista em Dentística Estética com atuação em facetas,
           clareamento dental e odontologia digital utilizando scanner iTero,
           oferecendo tratamentos personalizados para resultados naturais,
           precisos e duradouros.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-3 justify-center px-4">
+        <div className="fade-up fade-up-delay-3 flex flex-col sm:flex-row gap-3 justify-center px-4">
           <a
             href="https://wa.me/5532984592632"
             target="_blank"
