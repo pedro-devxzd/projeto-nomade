@@ -26,8 +26,12 @@ export default function Hero() {
           Dra. Maria Alice
         </h1>
 
-        <p className="font-playfair text-lg sm:text-xl text-[#C9A84C] italic mb-2">
+        <p className="font-playfair text-lg sm:text-xl text-[#C9A84C] italic mb-1">
           Gonçalves de Barros Vieira
+        </p>
+
+        <p className="fade-up fade-up-delay-2 text-[#999999] text-xs uppercase tracking-[3px] mb-2">
+          Dentística Estética
         </p>
 
         <p className="text-[#999999] text-xs tracking-[3px] uppercase mb-8">
@@ -37,10 +41,9 @@ export default function Hero() {
         <div className="w-px h-12 bg-[#2A2A2A] mx-auto mb-8"></div>
 
         <p className="fade-up fade-up-delay-2 text-[#999999] text-sm leading-relaxed max-w-md mx-auto mb-10 px-2">
-          Especialista em Dentística Estética com atuação em facetas,
-          clareamento dental e odontologia digital utilizando scanner iTero,
-          oferecendo tratamentos personalizados para resultados naturais,
-          precisos e duradouros.
+          Especialista em Dentística Estética, com foco em facetas, clareamento
+          dental e planejamento digital. Tratamentos personalizados para
+          resultados naturais, precisos e harmônicos.
         </p>
 
         <div className="fade-up fade-up-delay-3 flex flex-col sm:flex-row gap-3 justify-center px-4">
