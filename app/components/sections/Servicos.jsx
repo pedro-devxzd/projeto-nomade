@@ -7,36 +7,37 @@ export default function Servicos() {
     },
     {
       icone: "◇",
-      nome: "Facetas em Resina",
-      desc: "Facetas estéticas unitárias que transformam o sorriso com naturalidade.",
+      nome: "Facetas Estéticas",
+      desc: "Facetas que transformam o sorriso com naturalidade, harmonia e planejamento personalizado.",
     },
     {
       icone: "✦",
       nome: "Clareamento Dental",
-      desc: "Clareamento de consultório, convencional e em dentes tratados endodonticamente.",
+      desc: "Protocolos de clareamento para um sorriso mais luminoso e equilibrado.",
     },
     {
       icone: "✧",
       nome: "Planejamento Estético",
-      desc: "Design do sorriso com análise facial e planejamento digital personalizado.",
+      desc: "Análise personalizada para criar tratamentos alinhados ao sorriso e ao rosto.",
     },
     {
       icone: "◉",
       nome: "Odontologia Digital",
-      desc: "Escaneamento intraoral com iTero e planejamento digital de tratamentos.",
+      desc: "Recursos digitais para auxiliar no planejamento e precisão dos tratamentos.",
     },
     {
       icone: "✦",
       nome: "Clínico Geral",
-      desc: "Exodontia, profilaxia, raspagem periodontal e atendimento de urgências.",
+      desc: "Prevenção, manutenção da saúde bucal e atendimento de necessidades clínicas.",
     },
   ];
 
   return (
-    <section id="servicos" className="bg-[#0A0A0A] py-16 px-6">
+    <section id="servicos" className="bg-[#0A0A0A] py-24 px-6">
       <div className="max-w-5xl mx-auto">
-        <div className="flex items-center gap-4 mb-4">
+        <div className="flex items-center gap-4 mb-6">
           <div className="w-6 h-px bg-[#C9A84C]"></div>
+
           <p className="text-[#C9A84C] text-xs uppercase tracking-[4px]">
             Especialidades
           </p>
@@ -46,19 +47,34 @@ export default function Servicos() {
           Áreas de Atuação
         </h2>
 
-        <div className="w-10 h-px bg-[#C9A84C] mb-10"></div>
+        <div className="w-10 h-px bg-[#C9A84C] mb-12"></div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#2A2A2A] border border-[#2A2A2A]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {servicos.map((s, i) => (
             <div
               key={i}
-              className="bg-[#111111] p-6 hover:bg-[#1A1A1A] transition-colors"
+              className="
+                group
+                bg-[#111111]
+                border border-[#2A2A2A]
+                p-7
+                transition-all
+                duration-500
+                hover:-translate-y-2
+                hover:border-[#C9A84C]
+                hover:shadow-[0_20px_40px_rgba(201,168,76,0.12)]
+              "
             >
-              <p className="text-[#C9A84C] text-xl mb-3">{s.icone}</p>
-              <div className="w-5 h-px bg-[#C9A84C] mb-3"></div>
-              <h3 className="text-[#F5F5F5] text-xs font-semibold uppercase tracking-[1px] mb-2">
+              <p className="text-[#C9A84C] text-2xl mb-5 transition-transform duration-500 group-hover:scale-110">
+                {s.icone}
+              </p>
+
+              <div className="w-8 h-px bg-[#C9A84C] mb-5"></div>
+
+              <h3 className="text-[#F5F5F5] text-xs font-semibold uppercase tracking-[1px] mb-3">
                 {s.nome}
               </h3>
+
               <p className="text-[#999999] text-xs leading-relaxed">{s.desc}</p>
             </div>
           ))}
