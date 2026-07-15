@@ -26,16 +26,12 @@ export default function Hero() {
           Dra. Maria Alice
         </h1>
 
-        <p className="font-playfair text-lg sm:text-xl text-[#C9A84C] italic mb-1">
+        <p className="font-playfair text-base sm:text-lg text-[#D6D6D6] italic mb-2">
           Gonçalves de Barros Vieira
         </p>
 
-        <p className="fade-up fade-up-delay-2 text-[#999999] text-xs uppercase tracking-[3px] mb-2">
-          Dentística Estética
-        </p>
-
         <p className="text-[#999999] text-xs tracking-[3px] uppercase mb-8">
-          CRO 74548 · Barbacena & Conselheiro Lafaiete — MG
+          CRO 74548 · Barbacena · Conselheiro Lafaiete — MG
         </p>
 
         <div className="w-px h-12 bg-[#2A2A2A] mx-auto mb-8"></div>
@@ -86,9 +82,7 @@ export default function Hero() {
           <div className="w-px bg-[#2A2A2A]"></div>
 
           <div className="text-center">
-            <p className="font-playfair text-2xl text-[#C9A84C]">
-              Planejamento
-            </p>
+            <p className="font-playfair text-2xl text-[#C9A84C]">Fluxo</p>
             <p className="text-[#999999] text-xs uppercase tracking-[1px] mt-1">
               Digital
             </p>
