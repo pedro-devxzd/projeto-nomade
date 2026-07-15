@@ -70,20 +70,22 @@ export default function Galeria() {
                   src="/caso-clareamento-antes.jpg"
                   alt="Antes do clareamento dental"
                   className="
-                    w-full
-                    aspect-[4/3]
-                    object-cover
-                    grayscale
-                    contrast-90
-                    brightness-95
-                    transition-all
-                    duration-700
-                    ease-out
-                    group-hover:grayscale-0
-                    group-hover:contrast-100
-                    group-hover:brightness-100
-                    group-hover:scale-105
-                  "
+  w-full
+  aspect-[4/3]
+  object-cover
+  transition-all
+  duration-700
+  ease-out
+
+  md:grayscale
+  md:brightness-95
+  md:contrast-95
+
+  md:group-hover:grayscale-0
+  md:group-hover:brightness-105
+  md:group-hover:saturate-125
+  md:group-hover:scale-105
+"
                 />
 
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-all duration-700"></div>
