@@ -53,6 +53,8 @@ Me chamo ${form.from_name}.
 
 E-mail: ${form.email}
 
+WhatsApp: ${form.phone}
+
 Tenho interesse em:
 ${form.service}
 
@@ -71,19 +73,13 @@ ${form.message}
   const inputStyle =
     "w-full bg-transparent border-b border-[#2A2A2A] text-[#F5F5F5] text-sm py-3 outline-none placeholder:text-[#444] focus:border-[#C9A84C] transition-colors";
 
-  const buttonPrimary =
-    "bg-[#C9A84C] text-black px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 hover:bg-[#E8C97A] hover:-translate-y-1";
-
-  const buttonSecondary =
-    "border border-[#C9A84C] text-[#C9A84C] px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 hover:bg-[#C9A84C] hover:text-black hover:-translate-y-1";
-
   return (
     <section id="contato" className="bg-[#0A0A0A] py-32 px-6">
       <ScrollReveal>
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20">
           <div>
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-8 h-px bg-[#C9A84C]"></div>
+              <div className="w-8 h-px bg-[#C9A84C]" />
 
               <p className="text-[#C9A84C] text-xs uppercase tracking-[4px]">
                 Contato
@@ -94,7 +90,7 @@ ${form.message}
               Vamos cuidar do seu sorriso?
             </h2>
 
-            <div className="w-10 h-px bg-[#C9A84C] mb-8"></div>
+            <div className="w-10 h-px bg-[#C9A84C] mb-8" />
 
             <p className="text-[#999999] text-sm leading-relaxed mb-10">
               Agende uma avaliação personalizada e descubra o melhor
@@ -103,7 +99,7 @@ ${form.message}
 
             <div className="space-y-6">
               <div>
-                <p className="text-[#C9A84C] text-xs uppercase tracking-[2px] mb-1">
+                <p className="text-[#C9A84C] text-xs uppercase tracking-[2px]">
                   WhatsApp
                 </p>
 
@@ -111,7 +107,7 @@ ${form.message}
               </div>
 
               <div>
-                <p className="text-[#C9A84C] text-xs uppercase tracking-[2px] mb-1">
+                <p className="text-[#C9A84C] text-xs uppercase tracking-[2px]">
                   E-mail
                 </p>
 
@@ -121,7 +117,7 @@ ${form.message}
               </div>
 
               <div>
-                <p className="text-[#C9A84C] text-xs uppercase tracking-[2px] mb-1">
+                <p className="text-[#C9A84C] text-xs uppercase tracking-[2px]">
                   Localização
                 </p>
 
@@ -186,7 +182,6 @@ ${form.message}
                 text-sm
                 py-3
                 outline-none
-                focus:border-[#C9A84C]
                 "
                 onChange={handleChange}
                 value={form.service}
@@ -202,8 +197,6 @@ ${form.message}
                 <option>Odontologia Digital</option>
 
                 <option>Consulta Geral</option>
-
-                <option>Urgência</option>
               </select>
             </div>
 
@@ -236,7 +229,19 @@ ${form.message}
               <button
                 type="submit"
                 disabled={loading}
-                className={`${buttonPrimary} flex-1`}
+                className="
+                bg-[#C9A84C]
+                text-black
+                px-6
+                py-3
+                text-xs
+                font-bold
+                uppercase
+                tracking-widest
+                hover:bg-[#E8C97A]
+                transition-colors
+                flex-1
+                "
               >
                 {loading ? "Enviando..." : "Enviar E-mail"}
               </button>
@@ -244,7 +249,21 @@ ${form.message}
               <button
                 type="button"
                 onClick={handleWhatsApp}
-                className={`${buttonSecondary} flex-1`}
+                className="
+                border
+                border-[#C9A84C]
+                text-[#C9A84C]
+                px-6
+                py-3
+                text-xs
+                font-bold
+                uppercase
+                tracking-widest
+                hover:bg-[#C9A84C]
+                hover:text-black
+                transition-colors
+                flex-1
+                "
               >
                 Enviar WhatsApp
               </button>
