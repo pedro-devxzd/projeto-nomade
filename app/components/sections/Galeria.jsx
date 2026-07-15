@@ -70,25 +70,23 @@ export default function Galeria() {
                   src="/caso-clareamento-antes.jpg"
                   alt="Antes do clareamento dental"
                   className="
-  w-full
-  aspect-[4/3]
-  object-cover
-  transition-all
-  duration-700
-  ease-out
+                    w-full
+                    aspect-[4/3]
+                    object-cover
+                    transition-all
+                    duration-700
+                    ease-out
 
-  md:grayscale
-  md:brightness-95
-  md:contrast-95
+                    md:grayscale
+                    md:brightness-95
+                    md:contrast-90
 
-  md:group-hover:grayscale-0
-  md:group-hover:brightness-105
-  md:group-hover:saturate-125
-  md:group-hover:scale-105
-"
+                    md:group-hover:grayscale-0
+                    md:group-hover:brightness-100
+                    md:group-hover:contrast-100
+                    md:group-hover:scale-105
+                  "
                 />
-
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-all duration-700"></div>
 
                 <span
                   className="
@@ -122,9 +120,15 @@ export default function Galeria() {
                     transition-all
                     duration-700
                     ease-out
-                    group-hover:scale-105
-                    group-hover:brightness-105
-                    group-hover:saturate-125
+
+                    md:grayscale
+                    md:brightness-95
+                    md:contrast-90
+
+                    md:group-hover:grayscale-0
+                    md:group-hover:brightness-100
+                    md:group-hover:contrast-100
+                    md:group-hover:scale-105
                   "
                 />
 
@@ -147,6 +151,10 @@ export default function Galeria() {
               </div>
             </div>
           </div>
+
+          <p className="hidden md:block text-center text-[#777777] text-xs uppercase tracking-[3px] mt-6">
+            Passe o cursor sobre as imagens para revelar o resultado.
+          </p>
 
           <div className="mt-12 border-t border-[#2A2A2A] pt-8">
             <h3 className="font-playfair text-2xl text-[#F5F5F5] mb-3">
