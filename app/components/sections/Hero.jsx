@@ -65,27 +65,29 @@ export default function Hero() {
 
         <div className="flex justify-center gap-8 mt-16">
           <div className="text-center">
-            <p className="font-playfair text-2xl text-[#C9A84C]">2020</p>
+            <p className="font-playfair text-2xl text-[#C9A84C]">Estética</p>
             <p className="text-[#999999] text-xs uppercase tracking-[1px] mt-1">
-              Início Clínico
+              Dental
             </p>
           </div>
 
           <div className="w-px bg-[#2A2A2A]"></div>
 
           <div className="text-center">
-            <p className="font-playfair text-2xl text-[#C9A84C]">iTero</p>
+            <p className="font-playfair text-2xl text-[#C9A84C]">Facetas</p>
             <p className="text-[#999999] text-xs uppercase tracking-[1px] mt-1">
-              Scanner Digital
+              Naturais
             </p>
           </div>
 
           <div className="w-px bg-[#2A2A2A]"></div>
 
           <div className="text-center">
-            <p className="font-playfair text-2xl text-[#C9A84C]">Digital</p>
-            <p className="text-[#999999] text-xs uppercase tracking-[1px] mt-1">
+            <p className="font-playfair text-2xl text-[#C9A84C]">
               Planejamento
+            </p>
+            <p className="text-[#999999] text-xs uppercase tracking-[1px] mt-1">
+              Digital
             </p>
           </div>
         </div>
