@@ -3,12 +3,11 @@
 import { useEffect, useState } from "react";
 
 export default function CustomCursor() {
-  const [mouse, setMouse] = useState({ x: 0, y: 0 });
-  const [circle, setCircle] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const move = (e) => {
-      setMouse({
+      setPosition({
         x: e.clientX,
         y: e.clientY,
       });
@@ -21,71 +20,29 @@ export default function CustomCursor() {
     };
   }, []);
 
-  useEffect(() => {
-    let animation;
-
-    const follow = () => {
-      setCircle((current) => ({
-        x: current.x + (mouse.x - current.x) * 0.12,
-        y: current.y + (mouse.y - current.y) * 0.12,
-      }));
-
-      animation = requestAnimationFrame(follow);
-    };
-
-    follow();
-
-    return () => cancelAnimationFrame(animation);
-  }, [mouse]);
-
   return (
-    <>
-      {/* círculo elegante */}
-      <div
-        style={{
-          position: "fixed",
-          left: circle.x,
-          top: circle.y,
+    <div
+      style={{
+        position: "fixed",
+        left: position.x,
+        top: position.y,
 
-          width: "42px",
-          height: "42px",
+        width: "12px",
+        height: "12px",
 
-          borderRadius: "50%",
-          border: "1px solid rgba(212,175,55,0.55)",
+        background:
+          "radial-gradient(circle, rgba(212,175,55,.8), transparent 70%)",
 
-          background: "rgba(212,175,55,0.04)",
+        borderRadius: "50%",
 
-          backdropFilter: "blur(8px)",
+        transform: "translate(-50%, -50%)",
 
-          transform: "translate(-50%, -50%)",
+        pointerEvents: "none",
 
-          pointerEvents: "none",
-          zIndex: 999999,
+        zIndex: 999999,
 
-          transition: "width .3s ease, height .3s ease",
-        }}
-      />
-
-      {/* ponto central */}
-      <div
-        style={{
-          position: "fixed",
-          left: mouse.x,
-          top: mouse.y,
-
-          width: "6px",
-          height: "6px",
-
-          background: "#D4AF37",
-
-          borderRadius: "50%",
-
-          transform: "translate(-50%, -50%)",
-
-          pointerEvents: "none",
-          zIndex: 999999,
-        }}
-      />
-    </>
+        filter: "blur(1px)",
+      }}
+    />
   );
 }
