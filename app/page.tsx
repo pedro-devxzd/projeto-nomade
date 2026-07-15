@@ -4,6 +4,7 @@ import Sobre from "./components/sections/Sobre";
 import Servicos from "./components/sections/Servicos";
 import Contato from "./components/sections/Contato";
 import Footer from "./components/sections/Footer";
+import Galeria from "./components/sections/Galeria";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Hero />
       <Sobre />
       <Servicos />
+      <Galeria />
       <Contato />
       <Footer />
     </main>
