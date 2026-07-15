@@ -24,6 +24,10 @@ export default function Galeria() {
                 text-xs
                 uppercase
                 tracking-widest
+                transition-all
+                duration-300
+                hover:bg-[#C9A84C]
+                hover:text-black
               "
             >
               Clareamento Dental
@@ -61,7 +65,7 @@ export default function Galeria() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Antes */}
             <div className="group overflow-hidden border border-[#2A2A2A]">
-              <div className="relative">
+              <div className="relative overflow-hidden">
                 <img
                   src="/caso-clareamento-antes.jpg"
                   alt="Antes do clareamento dental"
@@ -69,12 +73,20 @@ export default function Galeria() {
                     w-full
                     aspect-[4/3]
                     object-cover
-                    transition-transform
-                    duration-[8000ms]
+                    grayscale
+                    contrast-90
+                    brightness-95
+                    transition-all
+                    duration-700
                     ease-out
+                    group-hover:grayscale-0
+                    group-hover:contrast-100
+                    group-hover:brightness-100
                     group-hover:scale-105
                   "
                 />
+
+                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-all duration-700"></div>
 
                 <span
                   className="
@@ -97,7 +109,7 @@ export default function Galeria() {
 
             {/* Depois */}
             <div className="group overflow-hidden border border-[#2A2A2A]">
-              <div className="relative">
+              <div className="relative overflow-hidden">
                 <img
                   src="/caso-clareamento-depois.jpg"
                   alt="Depois do clareamento dental"
@@ -105,10 +117,12 @@ export default function Galeria() {
                     w-full
                     aspect-[4/3]
                     object-cover
-                    transition-transform
-                    duration-[8000ms]
+                    transition-all
+                    duration-700
                     ease-out
                     group-hover:scale-105
+                    group-hover:brightness-105
+                    group-hover:saturate-125
                   "
                 />
 
