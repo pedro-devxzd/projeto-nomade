@@ -75,8 +75,9 @@ export default function Footer() {
           <p className="text-[#444] text-xs">
             © 2026 Dra. Maria Alice Gonçalves de Barros Vieira. Todos os
             direitos reservados.
-          </p>
-          <p className="text-[#444] text-xs">Desenvolvido por Projeto Nômade</p>
+          <p className="text-[#999999] text-xs tracking-[1px]">
+  Desenvolvido por Pedro H. S. · Desenvolvimento Web
+</p>
         </div>
       </div>
     </footer>
