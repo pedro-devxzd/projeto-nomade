@@ -6,13 +6,12 @@ export default function Galeria() {
           <div className="w-8 h-px bg-[#C9A84C]"></div>
 
           <p className="text-[#C9A84C] text-xs uppercase tracking-[4px]">
-            Resultados
-          </p>
-        </div>
+  Clareamento Dental
+</p>
 
-        <h2 className="font-playfair text-3xl sm:text-4xl text-[#F5F5F5] mb-4">
-          Transformações com naturalidade
-        </h2>
+<h2 className="font-playfair text-3xl sm:text-4xl text-[#F5F5F5] mb-4">
+  Transformações com naturalidade
+</h2>
 
         <p className="text-[#999999] text-sm leading-relaxed max-w-md mb-12">
           Cada sorriso é planejado de forma individual, buscando equilíbrio
@@ -71,9 +70,9 @@ export default function Galeria() {
         </div>
 
         <div className="mt-10 border-t border-[#2A2A2A] pt-8">
-          <h3 className="font-playfair text-2xl text-[#F5F5F5] mb-3">
-            Clareamento Dental
-          </h3>
+         <h3 className="font-playfair text-2xl text-[#F5F5F5] mb-3">
+  Resultado personalizado
+</h3>
 
           <div className="w-10 h-px bg-[#C9A84C] mb-5"></div>
 
