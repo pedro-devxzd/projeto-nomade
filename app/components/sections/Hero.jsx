@@ -1,128 +1,79 @@
 export default function Hero() {
   const btnPrimary =
-    "bg-[#C9A84C] text-black px-7 py-4 text-xs font-bold uppercase tracking-[2px] hover:bg-[#E4C46F] transition-all duration-300";
-
+    "bg-[#C9A84C] text-black px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#E8C97A] transition-all duration-300";
   const btnSecondary =
-    "border border-[#C9A84C] text-[#C9A84C] px-7 py-4 text-xs font-bold uppercase tracking-[2px] hover:bg-[#C9A84C] hover:text-black transition-all duration-300";
+    "border border-[#C9A84C] text-[#C9A84C] px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#C9A84C] hover:text-black transition-all duration-300";
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#050505] via-[#0A0A0A] to-[#050505] px-6">
-      {/* Glow */}
+    <section className="min-h-screen bg-[#0A0A0A] flex items-center justify-center px-6 pt-16 relative overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[650px] h-[650px] rounded-full bg-[#C9A84C] opacity-[0.06] blur-[180px] animate-pulse"></div>
+        <div className="w-[400px] h-[400px] rounded-full bg-[#C9A84C] opacity-[0.03] blur-3xl"></div>
       </div>
 
-      <div className="relative z-10 max-w-6xl w-full">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Texto */}
-          <div>
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-px bg-[#C9A84C]" />
-              <p className="text-[#C9A84C] uppercase tracking-[4px] text-xs">
-                Dentística Estética
-              </p>
-            </div>
-
-            <h1 className="font-playfair text-5xl md:text-7xl leading-tight text-white font-bold">
-              Transformando
-              <span className="block text-[#C9A84C]">sorrisos</span>
-              com precisão, estética e tecnologia.
-            </h1>
-
-            <p className="mt-8 text-[#B3B3B3] leading-8 text-lg max-w-xl">
-              Facetas, clareamento e odontologia digital para quem busca um
-              sorriso natural, moderno e planejado de forma totalmente
-              personalizada.
-            </p>
-
-            <div className="mt-10">
-              <h2 className="font-playfair text-3xl text-white">
-                Dra. Maria Alice
-              </h2>
-
-              <p className="italic text-[#C9A84C] mt-1">
-                Gonçalves de Barros Vieira
-              </p>
-
-              <p className="text-[#777] uppercase tracking-[2px] text-xs mt-3">
-                CRO 74548 • Barbacena & Conselheiro Lafaiete
-              </p>
-            </div>
-
-            {/* Selos */}
-
-            <div className="flex flex-wrap gap-3 mt-10">
-              <div className="border border-[#2B2B2B] px-4 py-2 text-sm text-[#C9A84C]">
-                Scanner iTero
-              </div>
-
-              <div className="border border-[#2B2B2B] px-4 py-2 text-sm text-[#C9A84C]">
-                Odontologia Digital
-              </div>
-
-              <div className="border border-[#2B2B2B] px-4 py-2 text-sm text-[#C9A84C]">
-                Atendimento Personalizado
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 mt-12">
-              <a
-                href="https://wa.me/5532984592632"
-                target="_blank"
-                className={btnPrimary}
-              >
-                Agendar Avaliação
-              </a>
-
-              <a
-                href="https://www.instagram.com/marialicegbv/"
-                target="_blank"
-                className={btnSecondary}
-              >
-                Ver Instagram
-              </a>
-            </div>
-          </div>
-
-          {/* Foto */}
-
-          <div className="hidden lg:flex justify-center">
-            <div className="relative">
-              <div className="absolute inset-0 rounded-[40px] bg-[#C9A84C] blur-3xl opacity-20"></div>
-
-              <img
-                src="/maria-alice.png"
-                alt="Dra Maria Alice"
-                className="relative rounded-[40px] w-[470px] object-cover"
-              />
-            </div>
-          </div>
+      <div className="text-center max-w-2xl w-full relative z-10">
+        <div className="flex items-center justify-center gap-3 mb-8">
+          <div className="w-6 h-px bg-[#C9A84C]"></div>
+          <p className="text-[#C9A84C] text-xs uppercase tracking-[3px]">
+            Cirurgiã-Dentista
+          </p>
+          <div className="w-6 h-px bg-[#C9A84C]"></div>
         </div>
 
-        {/* Estatísticas */}
+        <h1 className="font-playfair text-4xl sm:text-6xl md:text-7xl font-bold text-[#F5F5F5] leading-tight mb-3">
+          Dra. Maria Alice
+        </h1>
 
-        <div className="grid grid-cols-3 gap-6 mt-24 border-t border-[#1D1D1D] pt-12">
-          <div>
-            <h3 className="font-playfair text-4xl text-[#C9A84C]">2020</h3>
+        <p className="font-playfair text-lg sm:text-xl text-[#C9A84C] italic mb-2">
+          Gonçalves de Barros Vieira
+        </p>
 
-            <p className="uppercase tracking-[2px] text-xs text-[#888] mt-2">
+        <p className="text-[#999999] text-xs tracking-[3px] uppercase mb-8">
+          CRO74548 · Barbacena & C. Lafaiete — MG
+        </p>
+
+        <div className="w-px h-12 bg-[#2A2A2A] mx-auto mb-8"></div>
+
+        <p className="text-[#999999] text-sm leading-relaxed max-w-md mx-auto mb-10 px-2">
+          Especialista em Dentística Estética com experiência em facetas,
+          clareamento e odontologia digital com scanner iTero.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-3 justify-center px-4">
+          <a
+            href="https://wa.me/5532984592632"
+            target="_blank"
+            className={btnPrimary}
+          >
+            Entrar em Contato
+          </a>
+          <a
+            href="https://www.instagram.com/marialicegbv/"
+            target="_blank"
+            className={btnSecondary}
+          >
+            Ver Instagram
+          </a>
+        </div>
+
+        <div className="flex justify-center gap-8 mt-16">
+          <div className="text-center">
+            <p className="font-playfair text-2xl text-[#C9A84C]">2020</p>
+            <p className="text-[#999999] text-xs uppercase tracking-[1px] mt-1">
               Início Clínico
             </p>
           </div>
-
-          <div>
-            <h3 className="font-playfair text-4xl text-[#C9A84C]">3</h3>
-
-            <p className="uppercase tracking-[2px] text-xs text-[#888] mt-2">
+          <div className="w-px bg-[#2A2A2A]"></div>
+          <div className="text-center">
+            <p className="font-playfair text-2xl text-[#C9A84C]">3</p>
+            <p className="text-[#999999] text-xs uppercase tracking-[1px] mt-1">
               Clínicas
             </p>
           </div>
-
-          <div>
-            <h3 className="font-playfair text-4xl text-[#C9A84C]">iTero</h3>
-
-            <p className="uppercase tracking-[2px] text-xs text-[#888] mt-2">
-              Scanner Digital
+          <div className="w-px bg-[#2A2A2A]"></div>
+          <div className="text-center">
+            <p className="font-playfair text-2xl text-[#C9A84C]">144h</p>
+            <p className="text-[#999999] text-xs uppercase tracking-[1px] mt-1">
+              Especialização
             </p>
           </div>
         </div>
