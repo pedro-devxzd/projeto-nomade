@@ -1,85 +1,103 @@
+import ScrollReveal from "../ScrollReveal";
+
 export default function Servicos() {
   const servicos = [
     {
       icone: "◈",
       nome: "Dentística Restauradora",
-      desc: "Restaurações em resina composta com precisão, estética e acabamento natural.",
+      desc: "Restaurações diretas em resina composta com alta precisão e acabamento estético.",
     },
     {
       icone: "◇",
-      nome: "Facetas Estéticas",
-      desc: "Transformação do sorriso com planejamento personalizado e resultados naturais.",
+      nome: "Facetas em Resina",
+      desc: "Facetas estéticas unitárias que transformam o sorriso com naturalidade.",
     },
     {
       icone: "✦",
       nome: "Clareamento Dental",
-      desc: "Protocolos personalizados para um sorriso mais luminoso e harmônico.",
+      desc: "Clareamento de consultório, convencional e em dentes tratados endodonticamente.",
     },
     {
       icone: "✧",
       nome: "Planejamento Estético",
-      desc: "Análise individual para criar tratamentos alinhados ao sorriso e ao rosto.",
+      desc: "Design do sorriso com análise facial e planejamento digital personalizado.",
     },
     {
       icone: "◉",
       nome: "Odontologia Digital",
-      desc: "Recursos digitais que auxiliam no planejamento e precisão dos tratamentos.",
+      desc: "Escaneamento intraoral com iTero e planejamento digital de tratamentos.",
     },
     {
       icone: "✦",
       nome: "Clínico Geral",
-      desc: "Cuidados preventivos, manutenção da saúde bucal e atendimento clínico.",
+      desc: "Exodontia, profilaxia, raspagem periodontal e atendimento de urgências.",
     },
   ];
 
   return (
-    <section id="servicos" className="bg-[#0A0A0A] py-24 px-6">
-      <div className="max-w-5xl mx-auto">
-        <div className="flex items-center gap-4 mb-6">
-          <div className="w-6 h-px bg-[#C9A84C]"></div>
+    <section id="servicos" className="bg-[#0A0A0A] py-32 px-6">
+      <ScrollReveal>
+        <div className="max-w-5xl mx-auto">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-8 h-px bg-[#C9A84C]"></div>
 
-          <p className="text-[#C9A84C] text-xs uppercase tracking-[4px]">
-            Especialidades
-          </p>
-        </div>
+            <p className="text-[#C9A84C] text-xs uppercase tracking-[4px]">
+              Especialidades
+            </p>
+          </div>
 
-        <h2 className="font-playfair text-3xl sm:text-4xl text-[#F5F5F5] mb-4">
-          Áreas de Atuação
-        </h2>
+          <h2 className="font-playfair text-3xl sm:text-4xl text-[#F5F5F5] mb-4">
+            Áreas de Atuação
+          </h2>
 
-        <div className="w-10 h-px bg-[#C9A84C] mb-12"></div>
+          <div className="w-10 h-px bg-[#C9A84C] mb-12"></div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {servicos.map((s, i) => (
-            <div
-              key={i}
-              className="
-                group
-                bg-[#111111]
-                border border-[#2A2A2A]
-                p-6
-                transition-all
-                duration-500
-                hover:-translate-y-2
-                hover:border-[#C9A84C]
-                hover:shadow-[0_20px_40px_rgba(201,168,76,0.12)]
-              "
-            >
-              <div className="flex items-center gap-3 mb-5">
-                <p className="text-[#C9A84C] text-lg">{s.icone}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {servicos.map((s, i) => (
+              <div
+                key={i}
+                className="
+                  bg-[#111111]
+                  border
+                  border-[#2A2A2A]
+                  p-7
+                  transition-all
+                  duration-500
+                  hover:border-[#C9A84C]
+                  hover:-translate-y-1
+                "
+              >
+                <p className="text-[#C9A84C] text-2xl mb-5">{s.icone}</p>
 
-                <h3 className="text-[#F5F5F5] text-sm font-semibold uppercase tracking-[1px]">
+                <div className="w-8 h-px bg-[#C9A84C] mb-5"></div>
+
+                <h3
+                  className="
+                  text-[#F5F5F5]
+                  text-xs
+                  font-semibold
+                  uppercase
+                  tracking-[1.5px]
+                  mb-3
+                "
+                >
                   {s.nome}
                 </h3>
+
+                <p
+                  className="
+                  text-[#999999]
+                  text-xs
+                  leading-relaxed
+                "
+                >
+                  {s.desc}
+                </p>
               </div>
-
-              <div className="w-8 h-px bg-[#C9A84C] mb-4"></div>
-
-              <p className="text-[#999999] text-xs leading-relaxed">{s.desc}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }
