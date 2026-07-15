@@ -31,7 +31,8 @@ export default function Hero() {
         </p>
 
         <p className="text-[#999999] text-xs tracking-[3px] uppercase mb-8">
-          CRO 74548 · Barbacena · Conselheiro Lafaiete — MG
+          <span className="text-[#C9A84C]">CRO 74548</span> · Barbacena ·
+          Conselheiro Lafaiete — MG
         </p>
 
         <div className="w-px h-12 bg-[#2A2A2A] mx-auto mb-8"></div>
