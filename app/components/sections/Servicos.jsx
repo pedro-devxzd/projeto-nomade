@@ -65,13 +65,13 @@ export default function Servicos() {
                 hover:shadow-[0_20px_40px_rgba(201,168,76,0.12)]
               "
             >
-              <p className="text-[#C9A84C] text-xl mb-4 transition-transform duration-500 group-hover:scale-110">
-                {s.icone}
-              </p>
+              <div className="flex items-center gap-3 mb-5">
+                <p className="text-[#C9A84C] text-lg">{s.icone}</p>
 
-              <h3 className="text-[#F5F5F5] text-sm font-semibold uppercase tracking-[1px] mb-3">
-                {s.nome}
-              </h3>
+                <h3 className="text-[#F5F5F5] text-sm font-semibold uppercase tracking-[1px]">
+                  {s.nome}
+                </h3>
+              </div>
 
               <div className="w-8 h-px bg-[#C9A84C] mb-4"></div>
 
