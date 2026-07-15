@@ -59,6 +59,7 @@ export default function Galeria() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Antes */}
             <div className="group overflow-hidden border border-[#2A2A2A]">
               <div className="relative">
                 <img
@@ -77,24 +78,25 @@ export default function Galeria() {
 
                 <span
                   className="
-                  absolute
-                  bottom-4
-                  left-4
-                  bg-[#0A0A0A]/90
-                  px-4
-                  py-2
-                  text-[#C9A84C]
-                  text-xs
-                  uppercase
-                  tracking-widest
-                "
+                    absolute
+                    bottom-4
+                    left-4
+                    bg-[#0A0A0A]/90
+                    px-4
+                    py-2
+                    text-[#C9A84C]
+                    text-xs
+                    uppercase
+                    tracking-widest
+                  "
                 >
                   Antes
                 </span>
               </div>
             </div>
 
-            <div className="group overflow-hidden border border-[#2AA2A2A]">
+            {/* Depois */}
+            <div className="group overflow-hidden border border-[#2A2A2A]">
               <div className="relative">
                 <img
                   src="/caso-clareamento-depois.jpg"
@@ -112,17 +114,17 @@ export default function Galeria() {
 
                 <span
                   className="
-                  absolute
-                  bottom-4
-                  left-4
-                  bg-[#0A0A0A]/90
-                  px-4
-                  py-2
-                  text-[#C9A84C]
-                  text-xs
-                  uppercase
-                  tracking-widest
-                "
+                    absolute
+                    bottom-4
+                    left-4
+                    bg-[#C9A84C]
+                    px-4
+                    py-2
+                    text-black
+                    text-xs
+                    uppercase
+                    tracking-widest
+                  "
                 >
                   Depois
                 </span>
@@ -130,7 +132,7 @@ export default function Galeria() {
             </div>
           </div>
 
-          <div className="mt-12 border-t border-[#2A/2A2A] pt-8">
+          <div className="mt-12 border-t border-[#2A2A2A] pt-8">
             <h3 className="font-playfair text-2xl text-[#F5F5F5] mb-3">
               Clareamento Dental
             </h3>
