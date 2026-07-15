@@ -5,7 +5,6 @@ export default function Galeria() {
     <section id="galeria" className="bg-[#0A0A0A] py-32 px-6">
       <ScrollReveal>
         <div className="max-w-5xl mx-auto">
-          {/* Título */}
           <div className="flex items-center gap-4 mb-6">
             <div className="w-8 h-px bg-[#C9A84C]" />
 
@@ -26,9 +25,10 @@ export default function Galeria() {
                 text-xs
                 uppercase
                 tracking-widest
+                transition-all
+                duration-300
                 hover:bg-[#C9A84C]
                 hover:text-black
-                transition-all
               "
             >
               Clareamento Dental
@@ -63,7 +63,8 @@ export default function Galeria() {
             paciente.
           </p>
 
-          {/* GALERIA */}
+          {/* ANTES E DEPOIS */}
+
           <div
             className="
               group
@@ -78,9 +79,11 @@ export default function Galeria() {
               transition-all
               duration-700
               hover:border-[#C9A84C]/40
+              hover:shadow-[0_0_40px_rgba(201,168,76,0.08)]
             "
           >
             {/* ANTES */}
+
             <div className="relative overflow-hidden">
               <img
                 src="/caso-clareamento-antes.jpg"
@@ -98,7 +101,7 @@ export default function Galeria() {
                   md:brightness-90
 
                   md:group-hover:grayscale-0
-                  md:group-hover:brightness-100
+                  md:group-hover:brightness-105
                   md:group-hover:scale-105
                 "
               />
@@ -107,8 +110,7 @@ export default function Galeria() {
                 className="
                   absolute
                   bottom-5
-                  left-1/2
-                  -translate-x-1/2
+                  left-5
                   bg-[#0A0A0A]/90
                   px-5
                   py-2
@@ -128,6 +130,7 @@ export default function Galeria() {
             </div>
 
             {/* DEPOIS */}
+
             <div
               className="
                 relative
@@ -163,8 +166,7 @@ export default function Galeria() {
                 className="
                   absolute
                   bottom-5
-                  left-1/2
-                  -translate-x-1/2
+                  left-5
                   bg-[#C9A84C]
                   px-5
                   py-2
@@ -201,6 +203,7 @@ export default function Galeria() {
           </p>
 
           {/* Descrição */}
+
           <div className="mt-12 border-t border-[#2A2A2A] pt-8">
             <h3 className="font-playfair text-2xl text-[#F5F5F5] mb-3">
               Clareamento Dental
