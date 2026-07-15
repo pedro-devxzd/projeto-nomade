@@ -1,21 +1,24 @@
 export default function Hero() {
   const btnPrimary =
     "bg-[#C9A84C] text-black px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#E8C97A] transition-all duration-300";
+
   const btnSecondary =
     "border border-[#C9A84C] text-[#C9A84C] px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#C9A84C] hover:text-black transition-all duration-300";
 
   return (
     <section className="min-h-screen bg-[#0A0A0A] flex items-center justify-center px-6 pt-16 relative overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[400px] h-[400px] rounded-full bg-[#C9A84C] opacity-[0.03] blur-3xl"></div>
+        <div className="w-[450px] h-[450px] rounded-full bg-[#C9A84C] opacity-[0.05] blur-[180px]"></div>
       </div>
 
       <div className="text-center max-w-2xl w-full relative z-10">
         <div className="flex items-center justify-center gap-3 mb-8">
           <div className="w-6 h-px bg-[#C9A84C]"></div>
+
           <p className="text-[#C9A84C] text-xs uppercase tracking-[3px]">
-            Cirurgiã-Dentista
+            Dentística Estética
           </p>
+
           <div className="w-6 h-px bg-[#C9A84C]"></div>
         </div>
 
@@ -28,27 +31,32 @@ export default function Hero() {
         </p>
 
         <p className="text-[#999999] text-xs tracking-[3px] uppercase mb-8">
-          CRO74548 · Barbacena & C. Lafaiete — MG
+          CRO 74548 · Barbacena & Conselheiro Lafaiete — MG
         </p>
 
         <div className="w-px h-12 bg-[#2A2A2A] mx-auto mb-8"></div>
 
         <p className="text-[#999999] text-sm leading-relaxed max-w-md mx-auto mb-10 px-2">
-          Especialista em Dentística Estética com experiência em facetas,
-          clareamento e odontologia digital com scanner iTero.
+          Especialista em Dentística Estética com atuação em facetas,
+          clareamento dental e odontologia digital utilizando scanner iTero,
+          oferecendo tratamentos personalizados para resultados naturais,
+          precisos e duradouros.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center px-4">
           <a
             href="https://wa.me/5532984592632"
             target="_blank"
+            rel="noopener noreferrer"
             className={btnPrimary}
           >
-            Entrar em Contato
+            Agendar Avaliação
           </a>
+
           <a
             href="https://www.instagram.com/marialicegbv/"
             target="_blank"
+            rel="noopener noreferrer"
             className={btnSecondary}
           >
             Ver Instagram
@@ -62,18 +70,22 @@ export default function Hero() {
               Início Clínico
             </p>
           </div>
+
           <div className="w-px bg-[#2A2A2A]"></div>
+
           <div className="text-center">
-            <p className="font-playfair text-2xl text-[#C9A84C]">3</p>
+            <p className="font-playfair text-2xl text-[#C9A84C]">iTero</p>
             <p className="text-[#999999] text-xs uppercase tracking-[1px] mt-1">
-              Clínicas
+              Scanner Digital
             </p>
           </div>
+
           <div className="w-px bg-[#2A2A2A]"></div>
+
           <div className="text-center">
-            <p className="font-playfair text-2xl text-[#C9A84C]">144h</p>
+            <p className="font-playfair text-2xl text-[#C9A84C]">Digital</p>
             <p className="text-[#999999] text-xs uppercase tracking-[1px] mt-1">
-              Especialização
+              Planejamento
             </p>
           </div>
         </div>
