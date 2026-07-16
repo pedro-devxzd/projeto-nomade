@@ -6,7 +6,6 @@ import emailjs from "@emailjs/browser";
 export default function Contato() {
   const [form, setForm] = useState({
     from_name: "",
-    email: "",
     phone: "",
     service: "",
     message: "",
@@ -20,10 +19,26 @@ export default function Contato() {
       ...form,
       [e.target.name]: e.target.value,
     });
+
+    // limpa aviso quando começa preencher
+    if (status === "incompleto") {
+      setStatus("");
+    }
+  };
+
+  const validateForm = () => {
+    if (!form.from_name || !form.phone || !form.service) {
+      setStatus("incompleto");
+      return false;
+    }
+
+    return true;
   };
 
   const handleEmail = async (e) => {
     e.preventDefault();
+
+    if (!validateForm()) return;
 
     setLoading(true);
 
@@ -45,19 +60,18 @@ export default function Contato() {
   };
 
   const handleWhatsApp = () => {
-    const msg = `Olá Dra. Maria Alice!
+    if (!validateForm()) return;
+
+    const msg = `
+Olá Dra. Maria Alice!
 
 Me chamo ${form.from_name}.
-
-E-mail: ${form.email}
-
-WhatsApp: ${form.phone}
 
 Tenho interesse em:
 ${form.service}
 
-Mensagem:
-${form.message}`;
+${form.message}
+`;
 
     const url = `https://wa.me/5532984592632?text=${encodeURIComponent(msg)}`;
 
@@ -73,6 +87,8 @@ ${form.message}`;
   return (
     <section id="contato" className="bg-[#0A0A0A] py-24 px-6">
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
+        {/* INFORMAÇÕES */}
+
         <div>
           <p className="text-[#C9A84C] text-xs uppercase tracking-[4px] mb-4">
             Contato
@@ -84,39 +100,44 @@ ${form.message}`;
 
           <div className="w-10 h-px bg-[#C9A84C] mb-8"></div>
 
-          <p className="text-[#999999] text-sm leading-relaxed mb-10">
-            Preencha o formulário e escolha como prefere ser atendido.
+          <p className="text-[#C9A84C] text-sm mb-4">
+            Informe seus dados e o tratamento desejado para continuarmos. Assim,
+            poderemos entrar em contato e oferecer o melhor atendimento pelo
+            WhatsApp ou E-mail.
           </p>
 
-          <div className="space-y-6">
-            <div>
-              <p className="text-[#C9A84C] text-xs uppercase tracking-[2px] mb-1">
-                WhatsApp
-              </p>
-              <p className="text-[#999999] text-sm">(32) 98459-2632</p>
-            </div>
+          <div className="mb-6">
+            <p className="text-[#C9A84C] text-xs uppercase tracking-[2px] mb-1">
+              WhatsApp
+            </p>
 
-            <div>
-              <p className="text-[#C9A84C] text-xs uppercase tracking-[2px] mb-1">
-                E-mail
-              </p>
-              <p className="text-[#999999] text-sm">
-                contato.dramariaalice@gmail.com
-              </p>
-            </div>
+            <p className="text-[#999999] text-sm">(32) 98459-2632</p>
+          </div>
 
-            <div>
-              <p className="text-[#C9A84C] text-xs uppercase tracking-[2px] mb-1">
-                Localização
-              </p>
-              <p className="text-[#999999] text-sm">
-                Barbacena / Conselheiro Lafaiete — MG
-              </p>
-            </div>
+          <div className="mb-6">
+            <p className="text-[#C9A84C] text-xs uppercase tracking-[2px] mb-1">
+              E-mail
+            </p>
+
+            <p className="text-[#999999] text-sm">
+              contato.dramariaalice@gmail.com
+            </p>
+          </div>
+
+          <div>
+            <p className="text-[#C9A84C] text-xs uppercase tracking-[2px] mb-1">
+              Localização
+            </p>
+
+            <p className="text-[#999999] text-sm">
+              Barbacena / Conselheiro Lafaiete — MG
+            </p>
           </div>
         </div>
 
-        <form onSubmit={handleEmail}>
+        {/* FORMULARIO */}
+
+        <div>
           <div className="mb-6">
             <label className={labelStyle}>Nome completo</label>
 
@@ -127,19 +148,6 @@ ${form.message}`;
               className={inputStyle}
               onChange={handleChange}
               value={form.from_name}
-            />
-          </div>
-
-          <div className="mb-6">
-            <label className={labelStyle}>E-mail</label>
-
-            <input
-              name="email"
-              type="email"
-              placeholder="seu@email.com"
-              className={inputStyle}
-              onChange={handleChange}
-              value={form.email}
             />
           </div>
 
@@ -161,16 +169,34 @@ ${form.message}`;
 
             <select
               name="service"
-              className="w-full bg-[#111111] border-b border-[#2A2A2A] text-[#999999] text-sm py-3 outline-none focus:border-[#C9A84C]"
+              className="
+                w-full
+                bg-[#111111]
+                border-b
+                border-[#2A2A2A]
+                text-[#999999]
+                text-sm
+                py-3
+                outline-none
+                focus:border-[#C9A84C]
+              "
               onChange={handleChange}
               value={form.service}
             >
               <option value="">Selecione...</option>
-              <option>Facetas em Resina</option>
+
               <option>Clareamento Dental</option>
+
+              <option>Facetas em Resina</option>
+
+              <option>Restauração em Resina</option>
+
               <option>Planejamento Estético</option>
+
               <option>Odontologia Digital</option>
+
               <option>Consulta Geral</option>
+
               <option>Urgência</option>
             </select>
           </div>
@@ -180,13 +206,32 @@ ${form.message}`;
 
             <textarea
               name="message"
-              rows="4"
               placeholder="Descreva sua necessidade..."
-              className={`${inputStyle} resize-none`}
+              rows={4}
+              className="
+                w-full
+                bg-transparent
+                border-b
+                border-[#2A2A2A]
+                text-[#F5F5F5]
+                text-sm
+                py-3
+                outline-none
+                placeholder:text-[#444]
+                focus:border-[#C9A84C]
+                resize-none
+              "
               onChange={handleChange}
               value={form.message}
             />
           </div>
+
+          {status === "incompleto" && (
+            <p className="text-[#C9A84C] text-sm mb-4">
+              Preencha seu nome, WhatsApp e selecione o serviço antes de
+              continuar.
+            </p>
+          )}
 
           {status === "email_ok" && (
             <p className="text-green-400 text-sm mb-4">
@@ -202,22 +247,47 @@ ${form.message}`;
 
           <div className="flex gap-4 flex-wrap">
             <button
-              type="submit"
+              onClick={handleEmail}
               disabled={loading}
-              className="bg-[#C9A84C] text-black px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#E8C97A] transition-colors flex-1"
+              className="
+                bg-[#C9A84C]
+                text-black
+                px-6
+                py-3
+                text-xs
+                font-bold
+                uppercase
+                tracking-widest
+                hover:bg-[#E8C97A]
+                transition-colors
+                flex-1
+              "
             >
               {loading ? "Enviando..." : "Enviar E-mail"}
             </button>
 
             <button
-              type="button"
               onClick={handleWhatsApp}
-              className="border border-[#C9A84C] text-[#C9A84C] px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#C9A84C] hover:text-black transition-colors flex-1"
+              className="
+                border
+                border-[#C9A84C]
+                text-[#C9A84C]
+                px-6
+                py-3
+                text-xs
+                font-bold
+                uppercase
+                tracking-widest
+                hover:bg-[#C9A84C]
+                hover:text-black
+                transition-colors
+                flex-1
+              "
             >
               Enviar WhatsApp
             </button>
           </div>
-        </form>
+        </div>
       </div>
     </section>
   );
