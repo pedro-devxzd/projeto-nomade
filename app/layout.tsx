@@ -1,35 +1,25 @@
-import { Playfair_Display, Inter } from "next/font/google";
-import "./globals.css";
-import CustomCursor from "./components/CustomCursor";
+import { Playfair_Display, Inter } from 'next/font/google'
+import './globals.css'
 
 const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-});
+  subsets: ['latin'],
+  variable: '--font-playfair',
+})
 
 const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
+  subsets: ['latin'],
+  variable: '--font-inter',
+})
 
 export const metadata = {
-  title: "Dra. Maria Alice | Cirurgiã-Dentista",
-  description:
-    "Especialista em Dentística Estética em Barbacena e Conselheiro Lafaiete - MG",
-};
+  title: 'Dra. Maria Alice | Cirurgiã-Dentista',
+  description: 'Especialista em Dentística Estética em Barbacena e Conselheiro Lafaiete - MG',
+}
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={`${playfair.variable} ${inter.variable}`}>
-      <body>
-        <CustomCursor />
-
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
-  );
+  )
 }
