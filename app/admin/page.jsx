@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { supabase } from "../../lib/supabase";
 
 const CLOUD_NAME = "guhfb7da";
 const UPLOAD_PRESET = "xxpf3luv";
@@ -12,10 +13,7 @@ async function uploadToCloudinary(file, categoria) {
   formData.append("folder", `dra-maria-alice/${categoria}`);
   const res = await fetch(
     `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
-    {
-      method: "POST",
-      body: formData,
-    },
+    { method: "POST", body: formData }
   );
   return await res.json();
 }
@@ -53,10 +51,7 @@ function LoginScreen({ onLogin }) {
             type="password"
             placeholder="Digite a senha"
             value={senha}
-            onChange={(e) => {
-              setSenha(e.target.value);
-              setErro(false);
-            }}
+            onChange={(e) => { setSenha(e.target.value); setErro(false); }}
             onKeyDown={(e) => e.key === "Enter" && handleLogin()}
             className="w-full bg-transparent border-b border-[#1A1A1A] text-[#F5F5F5] text-sm py-3 outline-none placeholder:text-[#333] focus:border-[#C9A84C] transition-colors mb-6"
           />
@@ -80,23 +75,25 @@ function LoginScreen({ onLogin }) {
 function AdminPanel() {
   const [casos, setCasos] = useState([]);
   const [uploading, setUploading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [msg, setMsg] = useState("");
   const [novoTitulo, setNovoTitulo] = useState("");
   const [novoCategoria, setNovoCategoria] = useState("estetica");
   const [fileAntes, setFileAntes] = useState(null);
   const [fileDepois, setFileDepois] = useState(null);
 
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem("dra_ma_casos");
-      if (saved) setCasos(JSON.parse(saved));
-    } catch {}
-  }, []);
-
-  function saveCasos(list) {
-    setCasos(list);
-    localStorage.setItem("dra_ma_casos", JSON.stringify(list));
+  // Carrega casos do Supabase
+  async function loadCasos() {
+    setLoading(true);
+    const { data, error } = await supabase
+      .from("casos")
+      .select("*")
+      .order("created_at", { ascending: false });
+    if (!error && data) setCasos(data);
+    setLoading(false);
   }
+
+  useEffect(() => { loadCasos(); }, []);
 
   async function handleUpload() {
     if (!novoTitulo || !fileAntes) {
@@ -106,34 +103,44 @@ function AdminPanel() {
     setUploading(true);
     setMsg("Enviando fotos...");
     try {
+      // 1. Upload para Cloudinary
       const resAntes = await uploadToCloudinary(fileAntes, novoCategoria);
       let urlDepois = null;
       if (fileDepois) {
         const resDepois = await uploadToCloudinary(fileDepois, novoCategoria);
         urlDepois = resDepois.secure_url;
       }
-      const novo = {
-        id: Date.now(),
+
+      // 2. Salva no Supabase
+      const { error } = await supabase.from("casos").insert({
         titulo: novoTitulo,
         categoria: novoCategoria,
         antes: resAntes.secure_url,
         depois: urlDepois,
-        data: new Date().toLocaleDateString("pt-BR"),
-      };
-      saveCasos([novo, ...casos]);
+      });
+
+      if (error) throw error;
+
       setMsg("✓ Caso publicado!");
       setNovoTitulo("");
       setFileAntes(null);
       setFileDepois(null);
+      await loadCasos();
     } catch (e) {
+      console.error(e);
       setMsg("Erro ao enviar. Tente novamente.");
     }
     setUploading(false);
   }
 
-  function handleDelete(id) {
-    saveCasos(casos.filter((c) => c.id !== id));
-    setMsg("Caso removido.");
+  async function handleDelete(id) {
+    const { error } = await supabase.from("casos").delete().eq("id", id);
+    if (!error) {
+      setMsg("Caso removido.");
+      await loadCasos();
+    } else {
+      setMsg("Erro ao remover.");
+    }
   }
 
   function handleLogout() {
@@ -209,11 +216,7 @@ function AdminPanel() {
                     <img
                       src={URL.createObjectURL(fileAntes)}
                       alt="preview"
-                      style={{
-                        maxHeight: "120px",
-                        margin: "0 auto",
-                        objectFit: "cover",
-                      }}
+                      style={{ maxHeight: "120px", margin: "0 auto", objectFit: "cover" }}
                     />
                     <p className="text-[#C9A84C] text-xs mt-2 truncate">
                       {fileAntes.name}
@@ -243,11 +246,7 @@ function AdminPanel() {
                     <img
                       src={URL.createObjectURL(fileDepois)}
                       alt="preview"
-                      style={{
-                        maxHeight: "120px",
-                        margin: "0 auto",
-                        objectFit: "cover",
-                      }}
+                      style={{ maxHeight: "120px", margin: "0 auto", objectFit: "cover" }}
                     />
                     <p className="text-[#C9A84C] text-xs mt-2 truncate">
                       {fileDepois.name}
@@ -272,7 +271,13 @@ function AdminPanel() {
           </div>
           {msg && (
             <p
-              className={`text-xs uppercase tracking-[2px] mb-4 ${msg.includes("✓") ? "text-green-400" : msg.includes("Erro") ? "text-red-400" : "text-[#C9A84C]"}`}
+              className={`text-xs uppercase tracking-[2px] mb-4 ${
+                msg.includes("✓")
+                  ? "text-green-400"
+                  : msg.includes("Erro")
+                  ? "text-red-400"
+                  : "text-[#C9A84C]"
+              }`}
             >
               {msg}
             </p>
@@ -288,9 +293,12 @@ function AdminPanel() {
 
         {/* Lista */}
         <p className="text-[#C9A84C] text-xs uppercase tracking-[3px] mb-6">
-          Casos publicados ({casos.length})
+          Casos publicados ({loading ? "..." : casos.length})
         </p>
-        {casos.length === 0 && (
+        {loading && (
+          <p className="text-[#333] text-sm text-center py-12">Carregando...</p>
+        )}
+        {!loading && casos.length === 0 && (
           <p className="text-[#333] text-sm text-center py-12">
             Nenhum caso publicado ainda.
           </p>
@@ -305,21 +313,13 @@ function AdminPanel() {
                 <img
                   src={caso.antes}
                   alt="antes"
-                  style={{
-                    width: "100%",
-                    aspectRatio: "1",
-                    objectFit: "cover",
-                  }}
+                  style={{ width: "100%", aspectRatio: "1", objectFit: "cover" }}
                 />
                 {caso.depois ? (
                   <img
                     src={caso.depois}
                     alt="depois"
-                    style={{
-                      width: "100%",
-                      aspectRatio: "1",
-                      objectFit: "cover",
-                    }}
+                    style={{ width: "100%", aspectRatio: "1", objectFit: "cover" }}
                   />
                 ) : (
                   <div
@@ -340,7 +340,9 @@ function AdminPanel() {
                   <p className="text-[#F5F5F5] text-sm font-playfair">
                     {caso.titulo}
                   </p>
-                  <p className="text-[#333] text-xs mt-1">{caso.data}</p>
+                  <p className="text-[#333] text-xs mt-1">
+                    {new Date(caso.created_at).toLocaleDateString("pt-BR")}
+                  </p>
                 </div>
                 <button
                   onClick={() => handleDelete(caso.id)}

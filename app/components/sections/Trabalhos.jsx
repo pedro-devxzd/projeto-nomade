@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { supabase } from "../../lib/supabase";
 
 const casosFixos = [
   {
@@ -52,13 +53,21 @@ function CasoCard({ caso }) {
           <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <button
               onClick={() => setShowDepois(false)}
-              className={`${btnStyle} ${!showDepois ? "bg-[#C9A84C] text-black font-bold" : "bg-black/60 text-[#999] border border-[#333]"}`}
+              className={`${btnStyle} ${
+                !showDepois
+                  ? "bg-[#C9A84C] text-black font-bold"
+                  : "bg-black/60 text-[#999] border border-[#333]"
+              }`}
             >
               Antes
             </button>
             <button
               onClick={() => setShowDepois(true)}
-              className={`${btnStyle} ${showDepois ? "bg-[#C9A84C] text-black font-bold" : "bg-black/60 text-[#999] border border-[#333]"}`}
+              className={`${btnStyle} ${
+                showDepois
+                  ? "bg-[#C9A84C] text-black font-bold"
+                  : "bg-black/60 text-[#999] border border-[#333]"
+              }`}
             >
               Depois
             </button>
@@ -78,12 +87,18 @@ function CasoCard({ caso }) {
 export default function Trabalhos() {
   const [filtro, setFiltro] = useState("todos");
   const [casosAdmin, setCasosAdmin] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem("dra_ma_casos");
-      if (saved) setCasosAdmin(JSON.parse(saved));
-    } catch {}
+    async function loadCasos() {
+      const { data, error } = await supabase
+        .from("casos")
+        .select("*")
+        .order("created_at", { ascending: false });
+      if (!error && data) setCasosAdmin(data);
+      setLoading(false);
+    }
+    loadCasos();
   }, []);
 
   const todos = [...casosAdmin, ...casosFixos];
@@ -109,23 +124,39 @@ export default function Trabalhos() {
             <button
               key={f}
               onClick={() => setFiltro(f)}
-              className={`text-xs uppercase tracking-[2px] py-3 mr-6 border-b-2 transition-all ${filtro === f ? "text-[#C9A84C] border-[#C9A84C]" : "text-[#555] border-transparent hover:text-[#999]"}`}
+              className={`text-xs uppercase tracking-[2px] py-3 mr-6 border-b-2 transition-all ${
+                filtro === f
+                  ? "text-[#C9A84C] border-[#C9A84C]"
+                  : "text-[#555] border-transparent hover:text-[#999]"
+              }`}
             >
               {f === "todos"
                 ? "Todos"
                 : f === "estetica"
-                  ? "Estética"
-                  : f === "restauracao"
-                    ? "Restauração"
-                    : "Clareamento"}
+                ? "Estética"
+                : f === "restauracao"
+                ? "Restauração"
+                : "Clareamento"}
             </button>
           ))}
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#111]">
-          {filtrados.map((caso) => (
-            <CasoCard key={caso.id} caso={caso} />
-          ))}
-        </div>
+
+        {loading && (
+          <div className="text-center py-20">
+            <p className="text-[#333] text-xs uppercase tracking-[3px]">
+              Carregando casos...
+            </p>
+          </div>
+        )}
+
+        {!loading && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#111]">
+            {filtrados.map((caso) => (
+              <CasoCard key={caso.id} caso={caso} />
+            ))}
+          </div>
+        )}
+
         <div className="flex items-center justify-between mt-8">
           <p className="text-[#333] text-xs uppercase tracking-[2px]">
             Passe o mouse para ver antes e depois
